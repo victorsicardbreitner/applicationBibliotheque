@@ -62,12 +62,7 @@ public class InitDataSet {
 	
 	@PostConstruct
 	public void initData() { // pour que les tables de soient pas vide
-		
-		
-		
-		Logger logger = LoggerFactory.getLogger(InitDataSet.class);
-		
-		
+				
 		Domaine domaine1= new Domaine(null,"livre de biologie","science");
 		daoDomaineJpa.save(domaine1);
 		
@@ -88,12 +83,6 @@ public class InitDataSet {
     	daoLivreJpa.save(new Livre(null,"Le Seigneur des Anneaux" , "Tolkien",true,domFantasy));
     	daoLivreJpa.save(new Livre(null,"Les Miserables" , "Victor Hugo",true));
     	daoLivreJpa.save(new Livre(null,"Madame Bovary" , "Gustave Flaubert",true));
-    	daoAdminJpa.save(new Administrateur(null, "Soulef", "Saoud", "soulefsaoud@biblio.fr", "06XXXXXXXX", "5", "rue de la Biologie",
-    			"Paris", "75012", "France", "SoulefS", "Eucaryote"));
-		daoAdminJpa.save(new Administrateur(null,"Victor", "Sicard", "victor.sicard@biblio.fr", "06XXXXXXXX",
-				"8", "rue des Mathématiques", "Paris", "75012", "France", "VictorS", "Cauchy-Schwartz"));
-		daoAdminJpa.save(new Administrateur(null, "Roland", "Panzou", "roland.panzou@biblio.fr", "06XXXXXXXX",
-				"3", "rue de la Chimie", "Paris", "75012", "France", "RolandP", "Helium"));
 		
 		
 		Lecteur lecteur1 = daoLecteurJpa.save(new Lecteur("Paul" , "Dirac"));
@@ -102,26 +91,12 @@ public class InitDataSet {
 		emprunt1.setDateFin(AppUtils.ajouterJours(emprunt1.getDateFin(), -20));
 		daoEmpruntJpa.save(emprunt1);
 		
-		//logger.debug("EMPRUNT : "+ emprunt1.getId().toString());
-		
-
-		
-
 
 		Incident incident1 = new Incident("motif 1");
 		incident1.setEmprunt(emprunt1);
 		daoIncidentJpa.save(incident1);
-		
-		Lecteur lecteur2 = daoLecteurJpa.save(new Lecteur("Joseph" , "Staline"));
-		//logger.debug("EMPRUNT : "+ daoLecteurJpa.findById(lecteur2.getId()));
-		
-		
-		
-		/*
-		Emprunt emprunt2 = new Emprunt(livre2,lecteur2);
-		logger.debug("EMPRUNT2 : "+ emprunt2.getId().toString());
-		daoEmpruntJpa.insert(emprunt2);
-		*/
+
+
 		
 		daoUsers.save(new Users("user1","$2a$10$yl7N17Pooyc/HSy7t1rsYe4I2BVQnv8.woLrYeBPL.JnfXMCXBCve", "Y"));
 		daoAuthorities.save(new Authorities("user1","ROLE_USER"));
@@ -133,7 +108,4 @@ public class InitDataSet {
 		
 	}
 	
-	//public void initDataAdmin() {
-
-	//}
 }
