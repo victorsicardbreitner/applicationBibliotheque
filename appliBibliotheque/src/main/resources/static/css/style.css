@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.submit-success {
+    display: none;
+}
+
+.submit-success[data-submit="success"] {
+    display: block;
+}
+
+.submit-error {
+    display: none;
+}
+
+.submit-error[data-submit="error"] {
+    display: block;
+}
+
+.hide{
+  display:none
+}
+
+.fade {
+    opacity: 100;
+}
+
+/* #alert1, #alert2 {
+	display:none;
+} */
